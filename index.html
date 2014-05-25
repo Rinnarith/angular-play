@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="game">
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+		<script src="app.js"></script>
+	</head>
+	<body ng-controller="GameController as game">
+		<div ng-show="game.state == 1">
+			<p>This is a simple number guessing game. Press Start to begin.</p>
+			<button ng-click="game.setState(2)">Start</button>
+		</div>
+		<div ng-show="game.state == 2">
+			<input type="text" ng-model="game.numGuess" on-click="this.select()" numerical /><br />
+			<button ng-click="game.guess()">Guess</button>
+		</div>
+		<div ng-show="game.state >= 3">
+			{{ game.flash }}
+		</div>
+	</body>
+</html
